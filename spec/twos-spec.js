@@ -24,10 +24,6 @@ describe("twos", () => {
     { rolls: [2,2,2,2,2], result: 10 },
   ]
 
-  twos.forEach(scenario => {
-    it(`returns '${scenario.result}' when scoring '${scenario.rolls}'`, () => {
-      let score = this.subject.twos(...scenario.rolls)
-      expect(score).toBe(scenario.result)
-    })
-  })
+  twos.forEach(scenario => runScenario(scenario, 'twos'))
+
 })

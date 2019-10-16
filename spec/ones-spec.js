@@ -24,12 +24,6 @@ describe("ones", () => {
     { rolls: [1,1,1,1,1], result: 5 },
   ]
 
-  ones.forEach(scenario => {
+  ones.forEach(scenario => runScenario(scenario, 'ones'))
 
-    it(`returns '${scenario.result}' when scoring '${scenario.rolls}'`, () => {
-      let score = this.subject.ones(...scenario.rolls)
-      expect(score).toBe(scenario.result)
-    })
-  
-  })
 })

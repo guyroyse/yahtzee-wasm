@@ -7,24 +7,20 @@
     (param $a i32) (param $b i32) (param $c i32) (param $d i32) (param $e i32)
     (result i32)
 
-    (local $accum i32)
-    (local.set $accum (i32.const 0))
-
-    (local.set $accum
-      (call $add_if_n (local.get $accum) (local.get $a) (i32.const 1)))
-    (local.set $accum
-      (call $add_if_n (local.get $accum) (local.get $b) (i32.const 1)))
-    (local.set $accum
-      (call $add_if_n (local.get $accum) (local.get $c) (i32.const 1)))
-    (local.set $accum
-      (call $add_if_n (local.get $accum) (local.get $d) (i32.const 1)))
-    (local.set $accum
-      (call $add_if_n (local.get $accum) (local.get $e) (i32.const 1)))
-    
-    (return (local.get $accum))
+    (return (call $numbers (i32.const 1)
+      (local.get $a) (local.get $b) (local.get $c) (local.get $d) (local.get $e)))
   )
 
   (func $twos
+    (param $a i32) (param $b i32) (param $c i32) (param $d i32) (param $e i32)
+    (result i32)
+
+    (return (call $numbers (i32.const 2)
+      (local.get $a) (local.get $b) (local.get $c) (local.get $d) (local.get $e)))
+  )
+
+  (func $numbers
+    (param $num i32)
     (param $a i32) (param $b i32) (param $c i32) (param $d i32) (param $e i32)
     (result i32)
 
@@ -32,15 +28,15 @@
     (local.set $accum (i32.const 0))
 
     (local.set $accum
-      (call $add_if_n (local.get $accum) (local.get $a) (i32.const 2)))
+      (call $add_if_n (local.get $accum) (local.get $a) (local.get $num)))
     (local.set $accum
-      (call $add_if_n (local.get $accum) (local.get $b) (i32.const 2)))
+      (call $add_if_n (local.get $accum) (local.get $b) (local.get $num)))
     (local.set $accum
-      (call $add_if_n (local.get $accum) (local.get $c) (i32.const 2)))
+      (call $add_if_n (local.get $accum) (local.get $c) (local.get $num)))
     (local.set $accum
-      (call $add_if_n (local.get $accum) (local.get $d) (i32.const 2)))
+      (call $add_if_n (local.get $accum) (local.get $d) (local.get $num)))
     (local.set $accum
-      (call $add_if_n (local.get $accum) (local.get $e) (i32.const 2)))
+      (call $add_if_n (local.get $accum) (local.get $e) (local.get $num)))
     
     (return (local.get $accum))
   )
